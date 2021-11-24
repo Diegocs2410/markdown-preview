@@ -30,21 +30,18 @@ There's also [links](https://www.freecodecamp.org), and
 And if you want to get really crazy, even tables:
 
 Wild Header | Crazy Header | Another Header?
------------- | ------------- | -------------
+----------- | ------------ | -------------
 Your content can | be here, and it | can be here....
 And here. | Okay. | I think we get it.
 
 - And of course there are lists.
   - Some are bulleted.
      - With different indentation levels.
-        - That look like this.
-
 
 1. And there are numbered lists too.
 1. Use just 1s if you want!
 1. And last but not least, let's not forget embedded images:
 
-![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 `;
 const projectName = "markdown-previewer";
 
@@ -69,9 +66,14 @@ function App() {
   return (
     <div className="container">
       <h1 className="text-center mt-5 mb-3">MarkDown previewer</h1>
+      <img
+        src="https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg"
+        alt="freecodecamp "
+        className="w-100 mb-4"
+      />
       <div
-        className="row bg-gradient rounded mb-5"
-        style={{ height: "600px", backgroundColor: "#C14644" }}
+        className="row bg-gradient rounded mb-5 pb-5"
+        style={{ minHeight: "100vh", backgroundColor: "#C14644" }}
       >
         <div className="col-12 col-md-6 ">
           <h4 className="text-center text-light fw-bold my-2 p-3 shadowText">
@@ -79,7 +81,7 @@ function App() {
           </h4>
           <textarea
             id="editor"
-            className="form-control m-2 h-75 "
+            className="form-control m-2 min-vh-100 "
             value={textMarkdown}
             onChange={(e) => setTextMarkdown(e.target.value)}
           />
@@ -89,7 +91,7 @@ function App() {
             Markdown Converted
           </h4>
           <div
-            className="bg-light p-2  h-75"
+            className="bg-light p-2 min-vh-100"
             id="preview"
             dangerouslySetInnerHTML={{ __html: markdown }}
           ></div>
