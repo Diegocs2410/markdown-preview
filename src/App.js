@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { marked } from "marked";
 import Prism from "prismjs";
+import Bounce from "react-reveal/Bounce";
+import Fade from "react-reveal/Fade";
 
 const initialState = `# Welcome to my React Markdown Previewer!
 
@@ -43,7 +45,6 @@ And here. | Okay. | I think we get it.
 1. And last but not least, let's not forget embedded images:
 
 `;
-const projectName = "markdown-previewer";
 
 // ALLOWS LINE BREAKS WITH RETURN BUTTON
 marked.setOptions({
@@ -65,12 +66,18 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="text-center mt-5 mb-3">MarkDown previewer</h1>
-      <img
-        src="https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg"
-        alt="freecodecamp "
-        className="w-100 mb-4"
-      />
+      <Bounce>
+        <h1 className="text-center mt-5 mb-3">MarkDown previewer</h1>
+      </Bounce>
+      {setTimeout(() => {
+        <Fade>
+          <img
+            src="https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg"
+            alt="freecodecamp "
+            className="w-100 mb-4"
+          />
+        </Fade>;
+      }, 1000)}
       <div
         className="row bg-gradient rounded mb-5 pb-5"
         style={{ minHeight: "100vh", backgroundColor: "#C14644" }}
